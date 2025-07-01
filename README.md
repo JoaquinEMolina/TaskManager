@@ -4,7 +4,11 @@
 
 ### 📝 Overview
 
-**Tasks Manager** is a dynamic SPA (Single Page Application) built as the final project for the CS50W course. It provides users with a tool to manage tasks and projects collaboratively, offering a modern and interactive interface. Users can create tasks, assign multiple users, group them by projects, and apply dynamic filters in real-time. This tool is intended for personal use and small teams.
+**Tasks Manager** is a dynamic Single Page Application (SPA) developed as the final project for the CS50W: Web Programming with Python and JavaScript course. This project provides users with an efficient and collaborative environment to manage tasks and projects, track deadlines, and distribute responsibilities across teams.
+
+The application was designed to address common challenges in team-based task management for small teams or individuals, offering a simple yet powerful interface. Users can create tasks, assign them to multiple collaborators, categorize them under projects, and use real-time filtering to navigate large volumes of data seamlessly.
+
+This project emphasizes user experience, responsiveness, and logical data structure — enabling the user to view only the relevant information based on their role or assignments.
 
 ---
 
@@ -25,6 +29,7 @@ This project is significantly different from the others in the course and meets 
 - **Flatpickr** is used for intuitive and correctly formatted date inputs.
 - **Real-time dynamic filters** allow users to filter by title, project, user, and status without reloading.
 - The system is **designed for extensibility**, making it easy to add dashboards, analytics, CSV export, or subtasks.
+- **Permissions logic**: enforced both on the frontend (buttons hidden) and backend (server rejects unauthorized edits/deletions).
 
 This goes beyond course requirements by blending Django with a modular JavaScript frontend and DRF-powered backend.
 
@@ -97,7 +102,7 @@ This combination of custom architecture, SPA behavior, external integrations, an
 
 - Python 3.10+
 - Django 5.2.3
-- Dependencies: djangorestframework, choices.js, flatpickr
+- Other Dependencies: djangorestframework, choices.js, flatpickr
 
 **Autor:** Joaquin Molina  
 **Email:** joaquinn.molina@gmail.com  
