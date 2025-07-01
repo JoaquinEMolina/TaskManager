@@ -40,7 +40,6 @@ class Task(models.Model):
     project = models.ForeignKey('Project', on_delete=models.CASCADE, related_name='tasks', null=True, blank=True)
     description = models.TextField(blank=True)
     task_users = models.ManyToManyField('User', related_name='assigned_tasks', blank=True)
-    tags = models.ManyToManyField('Tag', blank=True)
     creation_date = models.DateTimeField(auto_now_add=True)
     objective_date = models.DateTimeField(null=True, blank=True)
     closed_date = models.DateTimeField(null=True, blank=True)
@@ -69,9 +68,4 @@ class Comment(models.Model):
     content = models.TextField()
     creation_date = models.DateTimeField(auto_now_add=True)
 
-# Tag task Model
-class Tag(models.Model):
-    name = models.CharField(max_length=50, unique=True)
 
-    def __str__(self):
-        return self.name

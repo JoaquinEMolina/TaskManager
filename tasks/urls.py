@@ -3,14 +3,13 @@ from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 from . import views
 from .views import (
-    UserViewSet, TagViewSet, ProjectViewSet,
+    UserViewSet, ProjectViewSet,
     TaskViewSet, CommentViewSet
 )
 
 
 router = DefaultRouter()
 router.register(r'users', UserViewSet)
-router.register(r'tags', TagViewSet)
 router.register(r'projects', ProjectViewSet, basename='project')
 router.register(r'tasks', TaskViewSet, basename='task')
 router.register(r'comments', CommentViewSet)

@@ -7,9 +7,9 @@ from django.urls import reverse
 from rest_framework import viewsets
 from django.contrib.auth import authenticate, login, logout
 
-from tasks.models import Project, Tag, User, Task, Comment
+from tasks.models import Project, User, Task, Comment
 from .serializers import (
-    UserSerializer, TagSerializer, ProjectSerializer,
+    UserSerializer, ProjectSerializer,
     TaskSerializer, CommentSerializer
 )
 
@@ -73,9 +73,6 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-class TagViewSet(viewsets.ModelViewSet):
-    queryset = Tag.objects.all()
-    serializer_class = TagSerializer
 
 class ProjectViewSet(viewsets.ModelViewSet):
     serializer_class = ProjectSerializer

@@ -775,6 +775,7 @@ function openTaskDetailModal(taskId) {
     });
 }
 
+// Load Comments
 function loadComments(taskId) {
   fetch('/api/comments/')
     .then(res => res.json())

@@ -1,7 +1,7 @@
 # serializers.py
 from tokenize import Comment
 from rest_framework import serializers
-from .models import User, Task, Project, Tag, Comment
+from .models import User, Task, Project, Comment
 
 
 # User Serializer
@@ -15,11 +15,6 @@ class UserSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("como le vas a poner asi negro")
         return value
 
-# Tag Serializer
-class TagSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Tag
-        fields = ['id', 'name']
 
 # Comment Serializer
 class CommentSerializer(serializers.ModelSerializer):
@@ -38,7 +33,6 @@ class TaskSerializer(serializers.ModelSerializer):
     # To read
     task_users_data = UserSerializer(source='task_users', many=True, read_only=True)
 
-    tags = TagSerializer(read_only=True, many=True)
     comments = CommentSerializer(read_only=True, many=True)
     project_title = serializers.CharField(source='project.title', read_only=True)
     project_users_data = serializers.SerializerMethodField()
@@ -52,12 +46,12 @@ class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
         fields = ['id', 'user', 'title', 'project', 'description',
-                  'task_users', 'task_users_data', 'tags', 'comments', 'project_title', 'creation_date',
+                  'task_users', 'task_users_data', 'comments', 'project_title', 'creation_date',
                   'objective_date', 'closed_date', 'status', 'project_users_data']
 
 class ProjectSerializer(serializers.ModelSerializer):
-    users = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), many=True, write_only=True)  # Para escribir
-    users_data = UserSerializer(source='users', many=True, read_only=True)  # Para leer
+    users = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), many=True, write_only=True)  # To whrite
+    users_data = UserSerializer(source='users', many=True, read_only=True)  # To read
 
     tasks = TaskSerializer(read_only=True, many=True)
     comments = CommentSerializer(read_only=True, many=True)
