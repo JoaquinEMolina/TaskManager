@@ -97,6 +97,10 @@ This combination of custom architecture, SPA behavior, external integrations, an
 
 7. visit the app at: http://localhost:8000
 
+## Backend API Documentation
+To get a API Doc go to:
+- **Swagger UI:** http://127.0.0.1:8000/swagger/
+- **Redoc UI:** http://127.0.0.1:8000/redoc/
 
 ## System requirements
 
@@ -108,3 +112,4 @@ This combination of custom architecture, SPA behavior, external integrations, an
 **Email:** joaquinn.molina@gmail.com  
 **GitHub User:** JoaquinEMolina
 **Course:** CS50’s Web Programming with Python and JavaScript
+
